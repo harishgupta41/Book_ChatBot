@@ -29,3 +29,44 @@ This is a full-stack web application that simulates an e-commerce **sales chatbo
 ---
 
 
+---
+
+## 🔄 Setup Instructions
+
+### 🧱 Backend (Flask + MySQL)
+1. Run the following script
+```
+cd backend
+python -m venv venv
+venv\Scripts\activate   # or source venv/bin/activate on Linux/mac
+pip install -r requirements.txt
+```
+
+2. Create MySQL Database
+```
+create database chatbot;
+```
+3. Update your **dbConfig.py** file
+
+4. Seed fake entries in database
+```
+python seedData.py 
+```
+
+5. Start Server
+
+```
+python app.py
+```
+### 🎨 Frontend (React)
+```
+cd frontend
+npm install
+npm start
+```
+---
+##### The app runs at:
+
+🔗 http://localhost:3000 (frontend)\
+🔗 http://localhost:5000 (backend)
+---
