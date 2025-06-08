@@ -1,8 +1,8 @@
 import re
 from models import Book
-# Extract intent and filters from message
+
+# Extract filters from message
 def parse_message(message):
-    # print("this is message parsing\n\n\n\n")
     filters = {}
 
     # Genre detection
@@ -12,7 +12,7 @@ def parse_message(message):
             filters['genre'] = genre.title()
             break
 
-    # Price detection (e.g., "under 500", "below 700")
+    # Price detection
     price_match = re.search(r'(under|below)\s*₹?(\d+)', message.lower())
     if price_match:
         filters['price'] = float(price_match.group(2))
@@ -22,14 +22,14 @@ def parse_message(message):
     if rating_match:
         filters['rating'] = float(rating_match.group(2))
 
-    # Author name (e.g., "by Rowling")
+    # Author name 
     author_match = re.search(r'by\s+([a-zA-Z\s]+)', message)
     if author_match:
         filters['author'] = author_match.group(1).strip()
 
-    # print(filters)
     return filters
 
+# Search books in database
 def search_books(filters):
     query = Book.query
 

@@ -45,6 +45,7 @@ export default function Chat() {
   const logout = async () => {
     try {
       await api.post("/logout");
+      alert('Logout Success');
       navigate("/");
     } catch (err) {
       alert("Logout failed");

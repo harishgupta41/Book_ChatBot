@@ -8,6 +8,7 @@ app = create_app()
 
 GENRES = ['Fiction', 'Sci-Fi', 'Fantasy', 'Mystery', 'Romance', 'Thriller', 'Non-fiction', 'Biography']
 
+# Generating fake database entries
 def generate_books(n=100):
     books = []
     for _ in range(n):
@@ -22,6 +23,7 @@ def generate_books(n=100):
         books.append(book)
     return books
 
+# Saving fake entries to database
 with app.app_context():
     db.create_all()
     db.session.add_all(generate_books())

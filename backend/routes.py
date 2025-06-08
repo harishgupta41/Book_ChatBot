@@ -8,6 +8,7 @@ from chatbot import parse_message,search_books
 auth_bp = Blueprint('auth', __name__)
 book_bp = Blueprint('book', __name__)
 
+# Signup API
 @auth_bp.route('/signup', methods=['POST'])
 def signup():
     data = request.json
@@ -24,7 +25,7 @@ def signup():
 
     return jsonify({'message': 'Signup successful'}), 201
 
-
+# Login API
 @auth_bp.route('/login', methods=['POST'])
 def login():
     data = request.json
@@ -38,13 +39,14 @@ def login():
     login_user(user)
     return jsonify({'message': 'Login successful'}), 200
 
-
+# Logout API
 @auth_bp.route('/logout', methods=['POST'])
 @login_required
 def logout():
     logout_user()
     return jsonify({'message': 'Logged out'}), 200
 
+# Chatting API
 @book_bp.route('/chat', methods=['POST'])
 @login_required
 def chat():
@@ -52,7 +54,6 @@ def chat():
     message = data['message']
 
     filters = parse_message(message)
-    # print(filters)
     books = search_books(filters)
 
     if books:
