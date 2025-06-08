@@ -66,7 +66,24 @@ npm start
 ```
 ---
 ##### The app runs at:
-
-🔗 http://localhost:3000 (frontend)\
+<small>
+🔗 http://localhost:3000 (frontend)<br>
 🔗 http://localhost:5000 (backend)
+</small>
+
 ---
+## 🧠 Sample Chatbot Queries
+- Show me thriller books under 500
+
+- Find books by J.K. Rowling
+
+- Books with rating above 4.2
+
+- I want romance books below ₹300
+---
+## 📄 Learnings
+- Built a complete full-stack app with auth, DB, APIs, and UI integration.
+
+- Understood CORS, session handling, and cross-origin frontend-backend communication.
+
+- Practiced modular code structure and reusable components.
