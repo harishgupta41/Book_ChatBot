@@ -46,7 +46,7 @@ export default function Chat() {
     try {
       await api.post("/logout");
       alert('Logout Success');
-      navigate("/");
+      navigate("/login");
     } catch (err) {
       alert("Logout failed");
     }
